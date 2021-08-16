@@ -1,0 +1,1892 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="day8_Mysql数据库, 吴凡的博客">
+    <meta name="description" content="不要在二十岁的时候就去享受八十岁的安逸">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>day8_Mysql数据库 | 吴凡的博客</title>
+    <link rel="icon" type="image/png" href="/favicon-32x32.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://wgmpwy.oss-cn-beijing.aliyuncs.com/typora/202108/20210805182451.png);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo1.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">吴凡的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo1.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">吴凡的博客</div>
+        <div class="logo-desc">
+            
+            不要在二十岁的时候就去享受八十岁的安逸
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/w1394847159" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/w1394847159" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://wgmpwy.oss-cn-beijing.aliyuncs.com/typora/202108/20210805171120.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">day8_Mysql数据库</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/java/">
+                                <span class="chip bg-color">java</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                <span class="chip bg-color">数据库</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                后端
+                            </a>
+                        
+                            <a href="/categories/%E5%90%8E%E7%AB%AF/java/" class="post-category">
+                                java
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-04-12
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    5.6k
+                </div>
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>本文介绍了Mysql数据库，并记录了一些mysql的使用案例，介绍了一对一，一对多，多对一的实现</p>
+<span id="more"></span>
+
+<h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ul>
+<li><code>DataBase</code> 简称DB,通常是一个或一组文件，保存了一些符合特定规格的数据。</li>
+</ul>
+<h2 id="表"><a href="#表" class="headerlink" title="表"></a>表</h2><ul>
+<li>表示一种结构化文件，可以用来存储特定类型的数据.表有特定的名称，不能重复。<ul>
+<li>表有几个概念：<ul>
+<li>列：字段<code>Column</code></li>
+<li>行：表中的记录</li>
+<li>主键：，每张表必须要有自己的主键</li>
+<li>每一个字段都有：字段名称/字段数据类型/字段约束/字段长度</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="主键"><a href="#主键" class="headerlink" title="主键"></a>主键</h2><ul>
+<li><strong>主键不允许为空，主键必须唯一，在创建主键时，需要为其指定主键，数据类型为整型，不允许为空值</strong></li>
+<li>一般多张表之间相互关联，员工表中有部门表的连接，一般称之为<strong>外键</strong>，而外键一般为另一张表主键。</li>
+</ul>
+<h2 id="SQL分类"><a href="#SQL分类" class="headerlink" title="SQL分类"></a>SQL分类</h2><ul>
+<li><p>数据<strong>查询</strong>语言(DQL-Data Query Language) </p>
+<ul>
+<li>代表关键字:select </li>
+</ul>
+</li>
+<li><p>数据<strong>操纵</strong>语言(DML-Data Manipulation Language)</p>
+<ul>
+<li>代表关键字:insert,delete,update </li>
+</ul>
+</li>
+<li><p>数据定义语言(DDL-Data Definition Language)</p>
+<ul>
+<li>代表关键字:create ,drop,alter,</li>
+</ul>
+</li>
+<li><p>事务控制语言(TCL-Transactional Control Language)</p>
+<ul>
+<li>代表关键字:commit ,rollback;</li>
+</ul>
+</li>
+<li><p>数据控制语言(DCL-Data Control Language)</p>
+<ul>
+<li>代表关键字:grant,revoke.</li>
+</ul>
+</li>
+</ul>
+<h2 id="数据库基本语言"><a href="#数据库基本语言" class="headerlink" title="数据库基本语言"></a>数据库基本语言</h2><ul>
+<li>进入数据库   <code>mysql -u root -p</code></li>
+<li>创建数据库 <code>create database 数据库名称</code><ul>
+<li>在数据库中建立表。因此创建表的时候必须要选择数据库</li>
+</ul>
+</li>
+<li>查询数据库  <code>select database()</code></li>
+<li>查询数据库版本 <code>select version()</code></li>
+<li>使用数据库<code>use 数据库</code></li>
+<li>终止语句 <code>\c</code></li>
+<li>退出mysql <code>\q</code> <code>QUIT</code> <code>EXIT</code></li>
+<li>删除数据库 <code>drop database 数据库</code></li>
+<li>查询数据库的表 <code>show tables</code></li>
+<li>查询表中数据结构 <code>select *from 表名 </code></li>
+</ul>
+<h3 id="DQL数据查询语言-select-查询"><a href="#DQL数据查询语言-select-查询" class="headerlink" title="DQL数据查询语言  select(查询)"></a><code>DQL</code>数据查询语言  <strong>select(查询)</strong></h3><ul>
+<li><code>select</code>用于查询表中的数据<ul>
+<li><code>select * from 表名; </code>  *代表所有数据</li>
+</ul>
+</li>
+</ul>
+<h3 id="DML数据操作语言-insert-添加-delete-删除-update-修改"><a href="#DML数据操作语言-insert-添加-delete-删除-update-修改" class="headerlink" title="DML数据操作语言 insert(添加)  delete(删除) update(修改)"></a><code>DML</code>数据操作语言 <strong>insert(添加)  delete(删除) update(修改)</strong></h3><ul>
+<li><p><code>insert</code>  添加一条数据</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">insert</span> tb_students <span class="token punctuation">(</span>stu_name<span class="token punctuation">,</span>sex<span class="token punctuation">,</span>age<span class="token punctuation">)</span><span class="token keyword">values</span> <span class="token punctuation">(</span><span class="token string">'张三'</span><span class="token punctuation">,</span><span class="token string">'1'</span><span class="token punctuation">,</span><span class="token string">'25'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>第一个 ()内是添加表的每个字段 ，第二个()内添加相应字段的数据</p>
+</li>
+<li><p><code>update</code> 修改一条数据</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">update</span> tb_students <span class="token keyword">set</span> stu_name <span class="token operator">=</span> <span class="token string">'赵六new'</span><span class="token punctuation">,</span>sex <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span>age <span class="token operator">=</span> <span class="token number">35</span> <span class="token keyword">where</span> stu_name <span class="token operator">=</span> <span class="token string">'赵六'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p><code>delete</code> 删除一条数据 以主键id删除</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">delete</span> <span class="token keyword">from</span> tb_students <span class="token keyword">where</span> id <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ul>
+<h2 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a>条件查询</h2><ul>
+<li><strong>条件查询需要用到where语句，where必须放到from语句表后面</strong></li>
+<li>sql99语法在from后面where只能出现一次</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>=</td>
+<td>等于</td>
+</tr>
+<tr>
+<td>&lt;&gt;或!=</td>
+<td>不等于</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>小于</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>小于等于</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>大于</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>大于等于</td>
+</tr>
+<tr>
+<td>between … and ….</td>
+<td>两个值之间,<strong>等同于 &gt;= and &lt;=</strong></td>
+</tr>
+<tr>
+<td>is null</td>
+<td>为null（is not null 不为空）</td>
+</tr>
+<tr>
+<td><strong>and</strong></td>
+<td>并且</td>
+</tr>
+<tr>
+<td><strong>or</strong></td>
+<td>或者</td>
+</tr>
+<tr>
+<td>in</td>
+<td>包含，相当于多个or（not in不在这个范围中）</td>
+</tr>
+<tr>
+<td>not</td>
+<td>not可以取非，主要用在is 或in中</td>
+</tr>
+<tr>
+<td>like</td>
+<td>like称为模糊查询，支持%或下划线匹配  %匹配任意个字符  下划线，一个下划线只匹配一个字符</td>
+</tr>
+</tbody></table>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">#计算所有员工的年薪
+select empno &#39;编号&#39;,ename &#39;姓名&#39;,sal* 12 &#39;年薪&#39; from emp;
+select ename as &#39;员工姓名&#39; ,sal*12 &#39;年薪&#39; from emp;
+
+#查询薪水不等于5000的员工
+select ename &#39;员工&#39;,sal &#39;月薪&#39; from emp where sal &lt;&gt; 5000;
+
+#查询月薪大于1500的员工
+select ename &#39;员工&#39; ,sal &#39;月薪&#39; from emp where sal &gt; 1500;
+
+#查询月薪在900-1500之间的元
+select ename &#39;员工&#39; ,sal &#39;月薪&#39; from emp where sal &gt; 900 and sal &lt; 1500;
+select ename &#39;员工&#39; ,sal &#39;月薪&#39; from emp where sal between 900 and 1500;
+
+#查询津贴为空的员工 is null
+select ename,comm from emp where comm is null;
+
+#查询津贴不为空的员工 is not null
+select ename,comm from emp where comm is not null;
+
+#查询出job为manager或者job为salesman的员工 or或者关键字
+select * from emp where job &#x3D; &#39;manager&#39; or job &#x3D; &#39;salesman&#39;;
+
+#查询出编号为 7499 和7521的员工 in关键字
+select *  from emp where empno in(7499,7521);
+#或者
+select *from emp where  empno &#x3D; 7499 or empno &#x3D; 7521;
+
+#查询薪水包含1600和薪水包含3000的员工；
+select *from emp where sal in (1600,3000);
+
+#查询出薪水不包含1600和薪水不包含3000的员工
+#法1
+select *from emp where sal not in (1600,3000);
+#法2
+select *from emp where sal &lt;&gt; 1600 and sal&lt;&gt;3000;
+#法3
+select *from emp where not (sal &#x3D; 1600 or sal &#x3D; 3000);
+
+#查询薪水大于1800，并且部门代码为20或30的员工
+select *from emp where (deptno &#x3D; 20 or deptno &#x3D; 30) and sal &gt;1800;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h2><ul>
+<li>聚合函数只能和分组字段一起出现</li>
+<li>聚合函数不能出现在from之后</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>count</th>
+<th>取得记录数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>sum</td>
+<td>求和</td>
+</tr>
+<tr>
+<td>avg</td>
+<td>取平均</td>
+</tr>
+<tr>
+<td>max</td>
+<td>取最大的数</td>
+</tr>
+<tr>
+<td>min</td>
+<td>取最小的数</td>
+</tr>
+</tbody></table>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">##求管理部门员工的个数 count 取得记录数
+# count(*)表示取得所有记录值，忽略null,为null的值也会取得
+select count(*) &#39;管理部门员工个数&#39; from emp where job &#x3D; &#39;manager&#39;;
+
+#取得津贴不为null的员工个数 *注：count会自动过滤掉空值，可以直接从津贴获得记录
+#采用count(字段名称),不会取得null的记录
+select count(comm)  &#39;津贴不为空员工数 &#39;from emp; 
+
+#取得工作岗位的个数  *注：distinct 关键字用于去重
+select count(distinct job ) from emp;
+
+#取得薪水总和 *注：sum可以取得某一列的和，null会被忽略。
+select sum(sal)  &#39; 薪水综合&#39; from emp;
+
+#求取得薪水的合计（薪资+津贴） *注：津贴中含有null值，需要将comm字段转换成0
+select sum(sal+ifnull(comm,0)) from emp;
+
+#求薪水最高的员工
+select max(sal) &#39;薪资&#39; from emp;
+
+&#x2F;&#x2F;求薪水最底的员工
+select min(sal) &#39;薪资&#39; from emp;
+
+&#x2F;&#x2F;求员工薪水平均值
+select avg(sal) &#39;薪水平均值&#39; from emp;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+
+
+<h2 id="模糊查询-：-like-关键字-重要！！"><a href="#模糊查询-：-like-关键字-重要！！" class="headerlink" title="模糊查询 ： like 关键字 (重要！！)"></a>模糊查询 ： like 关键字 (重要！！)</h2><ul>
+<li>like支持<code>%和下划线匹配</code><ul>
+<li><code>%匹配任意字符出现的个数</code>，<code>下划线只匹配一个字符</code></li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">#查找出员工姓名中包含字母&#39;L&#39;的员工
+select * from emp where ename like &#39;%L%&#39;;
+
+#查询以M开头的员工
+select * from emp where ename like &#39;M%&#39;;
+
+#查询以N结尾的员工的薪资
+select * from emp where ename like &#39;%l%&#39;;
+
+#查询第二个字母是O的员工
+select * from emp where ename like &#39;__O%&#39;;
+
+#查询倒数第三个字母是M的员工
+select *from emp where ename like &#39;%m__&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="order-by-排序"><a href="#order-by-排序" class="headerlink" title="order by 排序"></a>order by 排序</h2><ul>
+<li>排序采用<code>order by</code>子句，<code>order by</code>后面跟排序字段</li>
+<li><strong>排序字段可以放多个</strong>，多个采用<code>,</code>间隔，如果第一个字段重复，根据第二个字段排序。</li>
+<li><code>order by</code>默认采用升序 ，降序则在排序语句后加<code>desc</code></li>
+<li>如果存在<code>where子句</code>,<code>order by</code>必须放到<code>where</code>语句<strong>后面</strong></li>
+<li></li>
+</ul>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">#按照薪水从小到大排序 从小到大在排序语句后加 asc
+select * from emp order by sal asc; asc可写可不写
+
+#取得job为MANAGER的员工，按照薪水由小到大排序 *注意where子句在order by前
+select *from emp where job &#x3D; &#39;manager&#39; order by sal asc;
+
+# 如果有字段存在多个元素，则首先需要按照此字段排序，再按照原有字段排序
+#首先按照job排序，再按照sal排序
+select *from emp order by job,sal;
+
+#按照薪水从大到小排序 *注：降序需要在排序语句后加 desc;
+select *from emp order by sal desc;
+
+&#x2F;&#x2F;查询员工姓名中包含&quot;L&quot;的员工，并按薪水从大到小排序
+select * from emp where ename like &#39;%L%&#39; order by sal desc;
+
+#按照字段位置排序 order by 字段所处位置  *注：要想使用此方法，必须将所有信息全部输出才可排序
+#按照薪水排序
+select *from emp order by 6; #薪水sal字段处于第六个
+#按照姓名排序 姓名字段处于第二个
+select *from emp order by 2;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+
+
+
+
+<h2 id="group-by-分组查询"><a href="#group-by-分组查询" class="headerlink" title="group by 分组查询"></a>group by 分组查询</h2><ul>
+<li><p>分组函数自动忽略空值</p>
+</li>
+<li><p>排序关键字<code>order by</code>要放在分组关键字<code>group by</code>后面</p>
+</li>
+<li><p>分组查询主要涉及到两个子句，分别是：<code>group by和having</code></p>
+</li>
+</ul>
+<p><strong>SQL语句中若有group by 语句，那么在select语句后面只能跟</strong>分组函数+参与分组的字段,即只能有一个分组字段<strong>。</strong></p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">#取得每个工作岗位的工资合计，要求显示岗位名称和工资合计
+select job &#39;岗位&#39;, sum(sal) &#39;岗位获得所有薪水&#39; from emp group by job;
+
+#取得每个工作岗位的平均工资，要求显示岗位名称和平均工资，然后按照薪资升序 *注：字段如果使用了别名，在其余地方都需要使用别名
+select job &#39;岗位&#39;, avg(sal) sal1  from emp group by job order by sal1 asc;
+
+#按照工作岗位和部门编码分组，取得的工资合计 *注：group by后只能有一个分组字段
+select job,deptno,sum(sal) from emp group by job,deptno;
+
+&#x2F;&#x2F;按照工作岗位和部门编码分组，取得的工资合计 
+select job ,deptno,sum(sal) from emp group by job,deptno;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="分组查询的执行顺序"><a href="#分组查询的执行顺序" class="headerlink" title="分组查询的执行顺序"></a>分组查询的执行顺序</h3><ul>
+<li>根据条件查询数据<ul>
+<li>分组<code>group by</code><ul>
+<li>采用<code>having</code>过滤，取得正确的数据</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="having-再过滤"><a href="#having-再过滤" class="headerlink" title="having 再过滤"></a>having 再过滤</h2><ul>
+<li><p><code>having 关键字</code>  对分组后的数据再次进行过滤</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">&#x2F;&#x2F;取得每个方位的平均工资大于2000
+select job,avg(sal) avg from emp group by job having avg &gt; 2000;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+</ul>
+<h2 id="分页-limit"><a href="#分页-limit" class="headerlink" title="分页 limit"></a>分页 limit</h2><ul>
+<li>分页的关键字一定是出现在整个sql语句的后面（即在order by后面）</li>
+<li>表达： <code>limit startIndex,length</code><ul>
+<li>startIndex  起始位置，下表从0开始</li>
+<li>length 取几条数目</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span><span class="token keyword">from</span> emp <span class="token keyword">limit</span> 起始索引位置<span class="token punctuation">,</span>分页单位
+<span class="token comment">#起始索引从0开始，分页单位即从索引位置开始往后几条。</span>
+
+例：查出员工表<span class="token number">3</span><span class="token operator">-</span><span class="token number">5</span>条数据
+<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> emp <span class="token keyword">limit</span> <span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">;</span>
+
+
+案例：查出员工表<span class="token number">2</span><span class="token operator">-</span><span class="token number">9</span>条数据，然后按照薪资进行降序排列
+<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> emp <span class="token keyword">order</span> <span class="token keyword">by</span> sal <span class="token keyword">desc</span> <span class="token keyword">limit</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+
+
+
+
+<h2 id="连接查询"><a href="#连接查询" class="headerlink" title="连接查询"></a>连接查询</h2><h3 id="SQL92语法"><a href="#SQL92语法" class="headerlink" title="SQL92语法"></a>SQL92语法</h3><ul>
+<li><strong>没有指定 连接条件</strong>时，会出现“笛卡尔乘积”的现象，此时会出现遍历情况，表1字段和表2字段会完全遍历。</li>
+</ul>
+<p><code>elect 表1内字段，表2内字段 from 表1，表2 where 限定条件</code></p>
+<p><code>select 表1内字段，表2内字段 from 表1，表2 where 限定条件</code></p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">
+
+<span class="token comment">#例：查询所有部门信息</span>
+<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> dept<span class="token punctuation">;</span>
+
+<span class="token comment">#显示每个员工，并显示所属部门名称 where后建立连接</span>
+<span class="token keyword">select</span> ename<span class="token punctuation">,</span>dname <span class="token keyword">from</span> emp<span class="token punctuation">,</span>dept <span class="token keyword">where</span> emp<span class="token punctuation">.</span>DEPTNO <span class="token operator">=</span> dept<span class="token punctuation">.</span>deptno<span class="token punctuation">;</span>
+
+<span class="token comment">#一般需要为表起别名，在查询或者限定条件时，都以别名进行查询，（类似java中的声明）</span>
+<span class="token keyword">select</span> e<span class="token punctuation">.</span>ename<span class="token punctuation">,</span>d<span class="token punctuation">.</span>dname <span class="token keyword">from</span> emp e<span class="token punctuation">,</span>dept d <span class="token keyword">where</span> e<span class="token punctuation">.</span>DEPTNO <span class="token operator">=</span> d<span class="token punctuation">.</span>deptno<span class="token punctuation">;</span>
+
+<span class="token comment">//取得员工和所属领导的姓名 通过员工的mgr与领导工号匹配，将领导的姓名匹配出来</span>
+<span class="token keyword">select</span> e<span class="token punctuation">.</span>ename <span class="token string">'员工姓名'</span><span class="token punctuation">,</span>m<span class="token punctuation">.</span>ename <span class="token string">'领导'</span> <span class="token keyword">from</span> emp e<span class="token punctuation">,</span>emp m <span class="token keyword">where</span> e<span class="token punctuation">.</span>mgr <span class="token operator">=</span> m<span class="token punctuation">.</span>empno<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="SQL99语法"><a href="#SQL99语法" class="headerlink" title="SQL99语法"></a>SQL99语法</h3><ul>
+<li>SQL99 语法中 <code>where </code>需要换为<code>on</code></li>
+</ul>
+<h4 id="内连接"><a href="#内连接" class="headerlink" title="内连接"></a>内连接</h4><ul>
+<li><p>内连接会自动过滤掉空值</p>
+</li>
+<li><p>join连接</p>
+</li>
+</ul>
+<p><code>表1 (inner) join 表2 on 限定条件 </code></p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">#等值连接 限定条件处相同</span>
+<span class="token keyword">SELECT</span> e<span class="token punctuation">.</span>ename<span class="token punctuation">,</span>d<span class="token punctuation">.</span>dname <span class="token keyword">from</span> emp e <span class="token keyword">join</span> dept d <span class="token keyword">on</span> e<span class="token punctuation">.</span>DEPTNO <span class="token operator">=</span> d<span class="token punctuation">.</span>DEPTNO
+
+<span class="token comment">#非等值连接  例如介于某个区间之内，>&lt;,非空判断</span>
+<span class="token comment">#查询每个员工对应的薪资等级(要求显示员工姓名，员工薪资，员工薪资等级)</span>
+<span class="token keyword">SELECT</span> e<span class="token punctuation">.</span>ename<span class="token punctuation">,</span>e<span class="token punctuation">.</span>sal<span class="token punctuation">,</span>s<span class="token punctuation">.</span>GRADE 
+<span class="token keyword">from</span> emp e <span class="token keyword">join</span> salgrade s 
+<span class="token keyword">on</span> e<span class="token punctuation">.</span>sal  <span class="token comment">#确定约束条件是薪资</span>
+<span class="token operator">BETWEEN</span> s<span class="token punctuation">.</span>LOSAL <span class="token operator">AND</span> s<span class="token punctuation">.</span>HISAL  <span class="token comment">#显示在某个区间之内</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><p>自连接 </p>
+<ul>
+<li>自己连接自己，将一张表当成两张表操作</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> a<span class="token punctuation">.</span>ENAME<span class="token punctuation">,</span>b<span class="token punctuation">.</span>ENAME
+<span class="token keyword">FROM</span> emp a <span class="token keyword">join</span> emp b
+<span class="token keyword">on</span> a<span class="token punctuation">.</span>EMPNO <span class="token operator">=</span> b<span class="token punctuation">.</span>MGR  <span class="token comment">#限定条件是领导编号与员工编号对应</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h4 id="外连接"><a href="#外连接" class="headerlink" title="外连接"></a>外连接</h4><ul>
+<li>外连接需要将<code>while ---&gt; on</code></li>
+<li>外连接是多表查询的一种，把其中一张表看成主表，另外一张看成从表</li>
+<li>外连接在查询过程中，要求主表的数据是必须全部出现的，<strong>如果匹配字段为null，这个null会直接显示</strong>，不会被过滤掉。(主表类比java的key,必须要全部有值，从表类比java的value，不一定赋值)</li>
+<li>sql99语法在from后面where只能出现一次</li>
+</ul>
+<h5 id="左外连接"><a href="#左外连接" class="headerlink" title="左外连接"></a>左外连接</h5><ul>
+<li><p><code>主表 left (outer) join 从表</code></p>
+</li>
+<li><p>如果A表连接B表，把一张表看做主表，一张表看做副表</p>
+</li>
+<li><p>主表的内容全部显示，副表的内容可以不用全部显示，如果副表没有字段匹配，则返回null</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">#左连接</span>
+<span class="token keyword">SELECT</span> a<span class="token punctuation">.</span>ENAME <span class="token string">'员工姓名'</span><span class="token punctuation">,</span>b<span class="token punctuation">.</span>ENAME <span class="token string">'领导姓名'</span>
+<span class="token keyword">FROM</span> emp a <span class="token keyword">left</span> <span class="token keyword">join</span> emp b
+<span class="token keyword">on</span> a<span class="token punctuation">.</span>MGR <span class="token operator">=</span> b<span class="token punctuation">.</span>EMPNO
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h5 id="右外连接"><a href="#右外连接" class="headerlink" title="右外连接"></a>右外连接</h5><ul>
+<li><code>从表 right join 主表</code><ul>
+<li>右连接以右边的表为准和左边的表比较，和右表相等的不相等的都会显示出来，左表符合条件的显示，不符合条件的不显示。</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> d<span class="token punctuation">.</span>DNAME <span class="token punctuation">,</span> e<span class="token punctuation">.</span>DEPTNO
+<span class="token keyword">FROM</span> emp e <span class="token keyword">RIGHT</span> <span class="token keyword">JOIN</span> dept d
+<span class="token keyword">ON</span> e<span class="token punctuation">.</span>DEPTNO <span class="token operator">=</span> d<span class="token punctuation">.</span>DEPTNO
+<span class="token keyword">WHERE</span> e<span class="token punctuation">.</span>DEPTNO <span class="token operator">IS</span> <span class="token boolean">NULL</span> <span class="token comment">#此时e表作为副表，如果没有字段与主表匹配，则显示为空，通过判空查找结果</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p><strong>左连接能完成的功能右连接一定可以完成</strong></p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">&#x2F;&#x2F;要求显示所有员工姓名，以及员工对应的领导
+select e.ename &#39;员工姓名&#39;,m.ename &#39;领导&#39; from emp e,emp m where e.mgr &#x3D; m.empno;
+select e.ename &#39;员工姓名&#39;,m.ename &#39;领导&#39; from emp e left join emp m on e.mgr &#x3D; m.empno;  此时强制显示员工的所有姓名
+
+
+显示员工信息，并显示所属的部门名称
+# 外连接
+select e.ename ,e.sal,d.dname from emp e right join dept d on e.deptno &#x3D; d .deptno and sal &gt; 2000;
+
+# SQL92
+select e.ename,e.sal,d.dname from emp e , dept d where e.deptno &#x3D; d.deptno and sal &gt; 2000;
+
+# 如果某字段只存在于一张表中，则无需使用别名去声明；如果两张表中都存在某字段，一般此字段为两个表的连接字段，并且为其中一张表主键。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="多表连接查询"><a href="#多表连接查询" class="headerlink" title="多表连接查询"></a>多表连接查询</h3><ul>
+<li>多张表连接查询只能使用外连接</li>
+</ul>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">&#x2F;&#x2F;三张表或者三张表以上的连接查询
+1.查询所有员工的薪水，薪水等级，部门名称
+
+#把两张表查出来来的结果与第三表进行连接
+# 将emp表作为主表
+select e.ename &#39;员工姓名&#39;,d.dname &#39;所属部门&#39;,e.sal &#39;薪水&#39;,s.grade  &#39;薪水等级&#39;
+from dept d 
+right join emp e   
+on e.deptno &#x3D; d.deptno
+left join salgrade s #之前的结果连接当前的等级表
+on e.sal between s.losal and s.hisal
+order by s.grade ,e.sal;
+
+
+#案例
+#求每个员工的薪水等级
+select e.ename,avg(e.sal),s.grade
+from dept d 
+inner join emp e
+on d.deptno &#x3D; e.deptno
+left join
+
+# 求薪水等级大于2的员工信息，并降序排列
+select e.* ,d.dname &#39;所属部门&#39;,s.grade  &#39;薪水等级&#39;
+from dept d 
+right join emp e   
+on e.deptno &#x3D; d.deptno
+inner join salgrade s #之前的结果连接当前的等级表
+on e.sal between s.losal and s.hisal and s.grade &gt; 2
+
+order by s.grade desc;
+
+
+
+select job &#39;岗位&#39;, avg(sal) sal1  from emp group by job order by sal1 asc;
+
+#显示员工对应的薪资等级，领导，所属部门
+SELECT e1.ENAME &#39;员工姓名&#39;,e2.ENAME &#39;领导姓名&#39; ,d.DNAME &#39;部门&#39;,e1.SAL &#39;薪资&#39;,s.GRADE &#39;薪资水平&#39;
+from emp e1 join dept d 
+on e1.DEPTNO &#x3D; d.DEPTNO #作为emp与deptno的连接条件
+join emp e2  #自连接，
+on e1.MGR &#x3D; e2.EMPNO #用于将员工与领导对应
+join salgrade s
+on e1.SAL BETWEEN s.LOSAL AND s.HISAL #规定薪资的范围<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="子查询-嵌套查询"><a href="#子查询-嵌套查询" class="headerlink" title="子查询(嵌套查询)"></a>子查询(嵌套查询)</h2><ul>
+<li>子查询实际上是语句的嵌套，无论是几张表，永远都只从两张表开始分析</li>
+</ul>
+<h4 id="where语句中"><a href="#where语句中" class="headerlink" title="where语句中"></a>where语句中</h4><ul>
+<li><p>在where语句中使用子查询，也就是在where语句中加入select语句</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">#查询员工信息，查询哪些人是管理者，要求显示出其员工编号和员工姓名
+
+1.查询管理员编号
+select distinct mgr from emp where mgr is not null;
+2.查询员工编号中包含管理员编号的
+select empno,ename from emp where empno in (select distinct mgr from emp where mgr is not null);
+
+#查询哪些人的薪水高于员工的平均薪水，需要显示员工编号，员工姓名，薪水
+1.找到平均薪水
+select avg(sal) from emp;
+2.找到薪水高于平均薪水的员工
+select empno&#39;员工编号&#39;,ename &#39;员工姓名&#39;,sal from emp where sal &gt; (select avg(sal) from emp);
+
+SELECT *
+FROM emp
+WHERE SAL&gt; (SELECT avg(SAL) from emp)  #将员工的薪水和得到的平均薪水作对比
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h4 id="from语句中"><a href="#from语句中" class="headerlink" title="from语句中"></a>from语句中</h4><ul>
+<li><p>from语句中使用子查询，可以将子查询看做一张表</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">#查询各个部门的平均薪水所属等级，需要显示部门编号，平均薪水，等级编号
+1.查各部门的平均薪水
+select d.dname,avg(e.sal) avg
+from emp e 
+inner join dept d 
+on e.deptno &#x3D; d.deptno  
+group by d.dname; 
+
+2.
+select a.dname ,s.grade
+from
+(select d.dname,avg(e.sal) avg_sal
+from emp e 
+inner join dept d 
+on e.deptno &#x3D; d.deptno  #指定连接条件
+group by d.dname ) a
+ left join salgrade s
+ on a.avg_sal between s.losal and s.hisal;
+ 
+ #求部门的平均薪水，并显示薪水等级
+ 1.求部门的平均薪水
+ select d.dname ,avg(e.sal)
+ from 
+ emp e inner join dept d
+ on e.deptno &#x3D; d.deptno
+ group by d.dname;
+ 
+ 2.与薪水等级表连接起来
+ select a.dname &#39;部门名称&#39;,a.avg_sal &#39;平均薪水&#39;
+ from 
+ ( select d.dname ,avg(e.sal) avg_sal
+ from 
+ emp e inner join dept d
+ on e.deptno &#x3D; d.deptno
+ group by d.dname) a
+ left join salgrade s
+ on avg_sal between s.losal and hisal;
+ 
+ #完整实现
+ SELECT t.dname,t.avg1,s.GRADE
+FROM (SELECT d.dname dname,avg(e.sal) avg1
+FROM dept d left join emp e  #首先执行
+on d.DEPTNO &#x3D; e.DEPTNO 
+GROUP BY d.DNAME) t LEFT JOIN salgrade s
+on t.avg1  BETWEEN s.LOSAL and s.HISAL
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<p>D:\necessary\MySQL\bin</p>
+<h4 id="select语句中"><a href="#select语句中" class="headerlink" title="select语句中"></a>select语句中</h4><ul>
+<li><p>在select语句中使用子查询</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">#查询员工信息，并显示出员工所属的部门名称
+#方法1 员工表与部门表连接
+select e.ename ,d.dname from emp e,dept d where e.deptno &#x3D; d.deptno;
+
+#方法2 将部门表信息嵌套进员工表内
+select e.ename ,(select d.dname from dept d where e.deptno &#x3D; d.deptno) dname
+from emp e;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h2 id="select语句总结"><a href="#select语句总结" class="headerlink" title="select语句总结"></a>select语句总结</h2><p>一个完整的select语句格式：</p>
+<pre class="line-numbers language-none"><code class="language-none">select 字段
+from 表名
+where …….
+group by ……..
+having …….(就是为了过滤分组后的数据而存在的—不可以单独的出现)
+order by ……..<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>执行顺序</strong>：</p>
+<ol>
+<li>   首先执行where语句过滤原始数据</li>
+<li>   执行group by进行分组</li>
+<li>   执行having对分组数据进行操作</li>
+<li>   执行select选出数据</li>
+<li>   执行order by排序</li>
+</ol>
+<p><strong>原则</strong>：能在where中过滤的数据，尽量在where中过滤，效率较高。having的过滤是专门对分组之后的数据进行过滤的。</p>
+<h1 id="数据库注意事项"><a href="#数据库注意事项" class="headerlink" title="数据库注意事项"></a>数据库注意事项</h1><ul>
+<li>Mysql默认情况下大小写不敏感</li>
+<li>条件操作时，表达式具有优先级，如果想优先执行的语句，可以使用<code>( )</code>括起来。</li>
+<li></li>
+</ul>
+<h1 id="mysql案例"><a href="#mysql案例" class="headerlink" title="mysql案例"></a>mysql案例</h1><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token number">1.</span>创建student和score表
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> student
+      <span class="token punctuation">(</span> Id <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token operator">not</span> <span class="token boolean">null</span> <span class="token keyword">auto_increment</span> <span class="token keyword">unique</span> <span class="token keyword">comment</span><span class="token string">'学号'</span><span class="token punctuation">,</span>
+	Name <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> <span class="token operator">not</span> <span class="token boolean">null</span> <span class="token keyword">comment</span><span class="token string">'姓名'</span><span class="token punctuation">,</span>
+	Sex <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token keyword">comment</span><span class="token string">'性别'</span><span class="token punctuation">,</span>
+    Birth <span class="token keyword">year</span> <span class="token keyword">comment</span><span class="token string">'出生年份'</span><span class="token punctuation">,</span>
+    Department <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> <span class="token keyword">comment</span><span class="token string">'院系'</span><span class="token punctuation">,</span>
+    Address <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token keyword">comment</span><span class="token string">'家庭住址'</span><span class="token punctuation">,</span>
+      <span class="token keyword">primary</span> <span class="token keyword">key</span> <span class="token punctuation">(</span>Id<span class="token punctuation">)</span>
+      <span class="token punctuation">)</span><span class="token punctuation">;</span>
+      
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> score
+      <span class="token punctuation">(</span> Id <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token operator">not</span> <span class="token boolean">null</span> <span class="token keyword">auto_increment</span> <span class="token keyword">unique</span> <span class="token keyword">comment</span><span class="token string">'编号'</span><span class="token punctuation">,</span>
+	Stu_id <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token operator">not</span> <span class="token boolean">null</span> <span class="token keyword">comment</span><span class="token string">'学号'</span><span class="token punctuation">,</span>
+	C_name <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> <span class="token keyword">comment</span><span class="token string">'课程名'</span><span class="token punctuation">,</span>
+    Grade <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token keyword">comment</span><span class="token string">'分数'</span><span class="token punctuation">,</span>
+      <span class="token keyword">primary</span> <span class="token keyword">key</span> <span class="token punctuation">(</span>Id<span class="token punctuation">)</span>
+      <span class="token punctuation">)</span><span class="token punctuation">;</span>
+ 
+<span class="token number">2.</span>为student表和score表增加记录
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> student <span class="token keyword">VALUES</span><span class="token punctuation">(</span> <span class="token number">901</span><span class="token punctuation">,</span><span class="token string">'张老大'</span><span class="token punctuation">,</span> <span class="token string">'男'</span><span class="token punctuation">,</span><span class="token number">1985</span><span class="token punctuation">,</span><span class="token string">'计算机系'</span><span class="token punctuation">,</span> <span class="token string">'北京市海淀区'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> student <span class="token keyword">VALUES</span><span class="token punctuation">(</span> <span class="token number">902</span><span class="token punctuation">,</span><span class="token string">'张老二'</span><span class="token punctuation">,</span> <span class="token string">'男'</span><span class="token punctuation">,</span><span class="token number">1986</span><span class="token punctuation">,</span><span class="token string">'中文系'</span><span class="token punctuation">,</span> <span class="token string">'北京市昌平区'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> student <span class="token keyword">VALUES</span><span class="token punctuation">(</span> <span class="token number">903</span><span class="token punctuation">,</span><span class="token string">'张三'</span><span class="token punctuation">,</span> <span class="token string">'女'</span><span class="token punctuation">,</span><span class="token number">1990</span><span class="token punctuation">,</span><span class="token string">'中文系'</span><span class="token punctuation">,</span> <span class="token string">'湖南省永州市'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> student <span class="token keyword">VALUES</span><span class="token punctuation">(</span> <span class="token number">904</span><span class="token punctuation">,</span><span class="token string">'李四'</span><span class="token punctuation">,</span> <span class="token string">'男'</span><span class="token punctuation">,</span><span class="token number">1990</span><span class="token punctuation">,</span><span class="token string">'英语系'</span><span class="token punctuation">,</span> <span class="token string">'辽宁省阜新市'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> student <span class="token keyword">VALUES</span><span class="token punctuation">(</span> <span class="token number">905</span><span class="token punctuation">,</span><span class="token string">'王五'</span><span class="token punctuation">,</span> <span class="token string">'女'</span><span class="token punctuation">,</span><span class="token number">1991</span><span class="token punctuation">,</span><span class="token string">'英语系'</span><span class="token punctuation">,</span> <span class="token string">'福建省厦门市'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> student <span class="token keyword">VALUES</span><span class="token punctuation">(</span> <span class="token number">906</span><span class="token punctuation">,</span><span class="token string">'王六'</span><span class="token punctuation">,</span> <span class="token string">'男'</span><span class="token punctuation">,</span><span class="token number">1988</span><span class="token punctuation">,</span><span class="token string">'计算机系'</span><span class="token punctuation">,</span> <span class="token string">'湖南省衡阳市'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">#查询student表所有记录</span>
+<span class="token keyword">select</span> <span class="token operator">*</span><span class="token keyword">from</span> student<span class="token punctuation">;</span>
+
+<span class="token comment">#查询student表的第2条到第4条记录</span>
+<span class="token keyword">select</span> <span class="token operator">*</span><span class="token keyword">from</span> student <span class="token keyword">limit</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">;</span>
+
+<span class="token comment">#从student表查询所有学生的学号（id）、姓名（name）和院系（department）的信息</span>
+<span class="token keyword">select</span> id<span class="token punctuation">,</span> name<span class="token punctuation">,</span> department <span class="token keyword">from</span> student<span class="token punctuation">;</span>
+
+<span class="token comment">#6.从student表中查询计算机系和英语系的学生的信息</span>
+<span class="token keyword">select</span> <span class="token operator">*</span><span class="token keyword">from</span> student <span class="token keyword">where</span> department <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token string">'计算机系'</span><span class="token punctuation">,</span><span class="token string">'英语系'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">#7.从student表中查询年龄18~22岁的学生信息</span>
+<span class="token keyword">select</span> <span class="token operator">*</span><span class="token keyword">from</span> student <span class="token keyword">where</span> <span class="token punctuation">(</span><span class="token number">2010</span><span class="token operator">-</span>birth<span class="token punctuation">)</span> <span class="token operator">between</span> <span class="token number">18</span> <span class="token operator">and</span> <span class="token number">22</span><span class="token punctuation">;</span>
+
+<span class="token comment">#从student表中查询每个院系有多少人</span>
+<span class="token keyword">select</span> department <span class="token punctuation">,</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">from</span> student <span class="token keyword">group</span> <span class="token keyword">by</span> department<span class="token punctuation">;</span>
+
+<span class="token comment">#9从score表中查询每个科目的最高分</span>
+<span class="token keyword">SELECT</span> C_name<span class="token punctuation">,</span><span class="token function">MAX</span><span class="token punctuation">(</span>Grade<span class="token punctuation">)</span>
+<span class="token keyword">FROM</span> score
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> C_name
+
+<span class="token comment">#10 查询李四的考试科目（c_name）和考试成绩（grade）</span>
+<span class="token keyword">select</span> s<span class="token punctuation">.</span>name<span class="token punctuation">,</span>r<span class="token punctuation">.</span>C_name<span class="token punctuation">,</span>r<span class="token punctuation">.</span>grade <span class="token keyword">from</span> student s<span class="token punctuation">,</span>score r <span class="token keyword">where</span> s<span class="token punctuation">.</span>id <span class="token operator">=</span> r<span class="token punctuation">.</span>stu_id <span class="token operator">and</span> s<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'李四'</span><span class="token punctuation">;</span>
+
+<span class="token comment">#11.用连接的方式查询所有学生的信息和考试信息</span>
+<span class="token keyword">select</span> s<span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">,</span>r<span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">from</span> student s <span class="token keyword">inner</span> <span class="token keyword">join</span>  score r <span class="token keyword">on</span> s<span class="token punctuation">.</span>id <span class="token operator">=</span> r<span class="token punctuation">.</span>Stu_id <span class="token operator">and</span> r<span class="token punctuation">.</span>C_name <span class="token operator">=</span> <span class="token string">'计算机'</span> <span class="token operator">and</span> r<span class="token punctuation">.</span>grade <span class="token operator">&lt;</span> <span class="token number">95</span><span class="token punctuation">;</span>
+
+<span class="token comment">#12 计算每个学生的总成绩</span>
+<span class="token keyword">SELECT</span> t<span class="token punctuation">.</span><span class="token punctuation">`</span>Name<span class="token punctuation">`</span><span class="token punctuation">,</span><span class="token function">sum</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>Grade<span class="token punctuation">)</span>
+<span class="token keyword">FROM</span> student t <span class="token keyword">JOIN</span> score e
+<span class="token keyword">on</span> t<span class="token punctuation">.</span>Id <span class="token operator">=</span> e<span class="token punctuation">.</span>Stu_id
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> t<span class="token punctuation">.</span><span class="token punctuation">`</span>Name<span class="token punctuation">`</span>
+
+<span class="token comment">#13计算每个考试科目的平均成绩</span>
+<span class="token keyword">select</span> c_name <span class="token punctuation">,</span><span class="token function">avg</span><span class="token punctuation">(</span>grade<span class="token punctuation">)</span> <span class="token keyword">from</span> score <span class="token keyword">group</span> <span class="token keyword">by</span> c_name<span class="token punctuation">;</span>
+
+<span class="token comment">#查询计算机成绩低于95的学生信息</span>
+<span class="token keyword">select</span> s<span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">,</span>r<span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">from</span> student s <span class="token keyword">inner</span> <span class="token keyword">join</span>  score r <span class="token keyword">on</span> s<span class="token punctuation">.</span>id <span class="token operator">=</span> r<span class="token punctuation">.</span>Stu_id <span class="token operator">and</span> r<span class="token punctuation">.</span>C_name <span class="token operator">=</span> <span class="token string">'计算机'</span> <span class="token operator">and</span> r<span class="token punctuation">.</span>grade <span class="token operator">&lt;</span> <span class="token number">95</span><span class="token punctuation">;</span>
+
+<span class="token comment">#由于此处以成绩做判断，所以以分数作为主表</span>
+<span class="token keyword">SELECT</span> s<span class="token punctuation">.</span><span class="token punctuation">`</span>Name<span class="token punctuation">`</span><span class="token punctuation">,</span>s1<span class="token punctuation">.</span>C_name<span class="token punctuation">,</span>s1<span class="token punctuation">.</span>Grade
+<span class="token keyword">FROM</span> student s <span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> score s1
+<span class="token keyword">on</span> s<span class="token punctuation">.</span>Id <span class="token operator">=</span> s1<span class="token punctuation">.</span>Stu_id
+<span class="token keyword">WHERE</span> s1<span class="token punctuation">.</span>C_name <span class="token operator">=</span> <span class="token string">'计算机'</span> <span class="token operator">AND</span> s1<span class="token punctuation">.</span>Grade <span class="token operator">&lt;</span> <span class="token number">95</span>
+
+<span class="token comment">#查询同时参加计算机和英语考试的学生的信息</span>
+<span class="token number">1.</span>查询参加计算机
+<span class="token keyword">select</span> s<span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">,</span>r<span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">from</span> student s <span class="token keyword">inner</span> <span class="token keyword">join</span> score r <span class="token keyword">on</span> s<span class="token punctuation">.</span>id <span class="token operator">=</span> r<span class="token punctuation">.</span>stu_id <span class="token keyword">where</span> r<span class="token punctuation">.</span>c_name <span class="token operator">=</span> <span class="token string">'计算机'</span><span class="token punctuation">;</span>
+<span class="token number">2.</span>将<span class="token number">1</span>作为表，查询参加英语的
+
+     
+<span class="token keyword">select</span> s<span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">from</span> score r <span class="token keyword">right</span> <span class="token keyword">join</span> <span class="token punctuation">(</span><span class="token keyword">select</span> s<span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">from</span> student s <span class="token keyword">inner</span> <span class="token keyword">join</span> score r <span class="token keyword">on</span> s<span class="token punctuation">.</span>id <span class="token operator">=</span> r<span class="token punctuation">.</span>stu_id <span class="token keyword">where</span> r<span class="token punctuation">.</span>c_name <span class="token operator">=</span> <span class="token string">'计算机'</span><span class="token punctuation">)</span> s <span class="token keyword">on</span> s<span class="token punctuation">.</span>id <span class="token operator">=</span> r<span class="token punctuation">.</span>stu_id <span class="token keyword">where</span> r<span class="token punctuation">.</span>c_name <span class="token operator">=</span> <span class="token string">'英语'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">select</span> s<span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">from</span> <span class="token punctuation">(</span><span class="token keyword">select</span> s<span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">from</span> student s <span class="token keyword">inner</span> <span class="token keyword">join</span> score r <span class="token keyword">on</span> s<span class="token punctuation">.</span>id <span class="token operator">=</span> r<span class="token punctuation">.</span>stu_id <span class="token keyword">where</span> r<span class="token punctuation">.</span>c_name <span class="token operator">=</span><span class="token string">'计算机'</span><span class="token punctuation">)</span> s <span class="token keyword">left</span> <span class="token keyword">join</span> score r <span class="token keyword">on</span> s<span class="token punctuation">.</span>id <span class="token operator">=</span> r<span class="token punctuation">.</span>stu_id <span class="token keyword">where</span> c_name <span class="token operator">=</span> <span class="token string">'英语'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">SELECT</span> s<span class="token punctuation">.</span>name1 <span class="token punctuation">,</span>s<span class="token punctuation">.</span>s1<span class="token punctuation">,</span>s1<span class="token punctuation">.</span>C_name
+<span class="token keyword">FROM</span>
+<span class="token punctuation">(</span><span class="token keyword">SELECT</span> s<span class="token punctuation">.</span>Id id<span class="token punctuation">,</span>s<span class="token punctuation">.</span><span class="token punctuation">`</span>Name<span class="token punctuation">`</span> name1<span class="token punctuation">,</span>s1<span class="token punctuation">.</span>C_name s1
+<span class="token keyword">FROM</span> student s 
+<span class="token keyword">left</span> <span class="token keyword">JOIN</span> score s1
+<span class="token keyword">on</span> s<span class="token punctuation">.</span>Id <span class="token operator">=</span> s1<span class="token punctuation">.</span>Stu_id
+<span class="token keyword">WHERE</span> s1<span class="token punctuation">.</span>C_name<span class="token operator">=</span><span class="token string">'计算机'</span>
+<span class="token punctuation">)</span> s
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> score s1
+<span class="token keyword">on</span> s<span class="token punctuation">.</span>id <span class="token operator">=</span> s1<span class="token punctuation">.</span>Stu_id
+<span class="token keyword">WHERE</span> s1<span class="token punctuation">.</span>C_name<span class="token operator">=</span><span class="token string">'英语'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">吴凡</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://w1394847159.github.io/2021/04/12/ying-ge/day8/">https://w1394847159.github.io/2021/04/12/ying-ge/day8/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">吴凡</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/java/">
+                                    <span class="chip bg-color">java</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                    <span class="chip bg-color">数据库</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/04/13/ying-ge/day9/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="day9_JDBC+事务">
+                        
+                        <span class="card-title">day9_JDBC+事务</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            摘要JDBC
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-13
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                    后端
+                                </a>
+                            
+                            <a href="/categories/%E5%90%8E%E7%AB%AF/java/" class="post-category">
+                                    java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/java/">
+                        <span class="chip bg-color">java</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/04/09/ying-ge/day7-tomcat/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="day7_Tomcat+servlet">
+                        
+                        <span class="card-title">day7_Tomcat+servlet</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            摘要本文介绍Servlet + Tomcat服务器
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                    后端
+                                </a>
+                            
+                            <a href="/categories/%E5%90%8E%E7%AB%AF/java/" class="post-category">
+                                    java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/java/">
+                        <span class="chip bg-color">java</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('2'),
+            headingSelector: 'h2, h3, h4,h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4,h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">吴凡</a>
+           <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+                <span id="icp"><img src="/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="/null" target="_blank">黔ICP备2021002529号</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/w1394847159" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1394847159@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1394847159" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1394847159" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
