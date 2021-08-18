@@ -21,30 +21,58 @@
     var CONFIG = {"hostname":"w1394847159.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"osition":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="不要在二十岁的时候就去享受八十岁的安逸">
-<meta property="og:type" content="website">
-<meta property="og:title" content="吴凡的博客">
-<meta property="og:url" content="https://w1394847159.github.io/index.html">
+  <meta name="description" content="二叉树概念 二叉树是只有两个结点的树形，由于左右的不同，可以分为左子树和右子树。一个结点最多有2个结点，A为一个结点    特点 每个结点最多只能有两个子树，二叉树中不存在度大于2的结点  左子树和右子树有顺序，次序不能颠倒。  即使树中某一个结点只有一棵子树，也要区分是左子树还是右子树。如下图，左边为左子树，右边为右子树。     二叉树的五种基本形态 空二叉树 只有一个根结点 根结点只有左子树">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二叉树">
+<meta property="og:url" content="https://w1394847159.github.io/2021/08/17/shu-ju-jie-gou/er-cha-shu/index.html">
 <meta property="og:site_name" content="吴凡的博客">
-<meta property="og:description" content="不要在二十岁的时候就去享受八十岁的安逸">
+<meta property="og:description" content="二叉树概念 二叉树是只有两个结点的树形，由于左右的不同，可以分为左子树和右子树。一个结点最多有2个结点，A为一个结点    特点 每个结点最多只能有两个子树，二叉树中不存在度大于2的结点  左子树和右子树有顺序，次序不能颠倒。  即使树中某一个结点只有一棵子树，也要区分是左子树还是右子树。如下图，左边为左子树，右边为右子树。     二叉树的五种基本形态 空二叉树 只有一个根结点 根结点只有左子树">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wgmpwy.oss-cn-beijing.aliyuncs.com/typora/202108/20210817151449.png">
+<meta property="og:image" content="https://wgmpwy.oss-cn-beijing.aliyuncs.com/typora/202108/20210817151700.png">
+<meta property="og:image" content="https://wgmpwy.oss-cn-beijing.aliyuncs.com/typora/202108/20210817152300.png">
+<meta property="og:image" content="https://wgmpwy.oss-cn-beijing.aliyuncs.com/typora/202108/20210817152313.png">
+<meta property="og:image" content="https://wgmpwy.oss-cn-beijing.aliyuncs.com/typora/202108/20210817152915.png">
+<meta property="og:image" content="https://wgmpwy.oss-cn-beijing.aliyuncs.com/typora/202108/20210817153624.png">
+<meta property="og:image" content="https://wgmpwy.oss-cn-beijing.aliyuncs.com/typora/202108/20210817153702.png">
+<meta property="og:image" content="https://wgmpwy.oss-cn-beijing.aliyuncs.com/typora/202108/20210817154723.png">
+<meta property="og:image" content="https://wgmpwy.oss-cn-beijing.aliyuncs.com/typora/202108/20210817154913.png">
+<meta property="og:image" content="https://wgmpwy.oss-cn-beijing.aliyuncs.com/typora/202108/20210817163327.png">
+<meta property="og:image" content="https://wgmpwy.oss-cn-beijing.aliyuncs.com/typora/202108/20210817164629.png">
+<meta property="og:image" content="https://wgmpwy.oss-cn-beijing.aliyuncs.com/typora/202108/20210817164646.png">
+<meta property="og:image" content="https://wgmpwy.oss-cn-beijing.aliyuncs.com/typora/202108/20210817202228.png">
+<meta property="og:image" content="https://wgmpwy.oss-cn-beijing.aliyuncs.com/typora/202108/20210817202246.png">
+<meta property="og:image" content="https://wgmpwy.oss-cn-beijing.aliyuncs.com/typora/202108/20210817202652.png">
+<meta property="og:image" content="https://wgmpwy.oss-cn-beijing.aliyuncs.com/typora/202108/20210817202714.png">
+<meta property="og:image" content="https://wgmpwy.oss-cn-beijing.aliyuncs.com/typora/202108/20210817221336.png">
+<meta property="og:image" content="https://wgmpwy.oss-cn-beijing.aliyuncs.com/typora/202108/20210817221706.png">
+<meta property="og:image" content="https://wgmpwy.oss-cn-beijing.aliyuncs.com/typora/202108/20210817222319.png">
+<meta property="og:image" content="https://wgmpwy.oss-cn-beijing.aliyuncs.com/typora/202108/20210818081825.png">
+<meta property="og:image" content="https://wgmpwy.oss-cn-beijing.aliyuncs.com/typora/202108/20210818081938.png">
+<meta property="og:image" content="https://wgmpwy.oss-cn-beijing.aliyuncs.com/typora/202108/20210818085613.png">
+<meta property="og:image" content="https://wgmpwy.oss-cn-beijing.aliyuncs.com/typora/202108/20210818085641.png">
+<meta property="og:image" content="https://wgmpwy.oss-cn-beijing.aliyuncs.com/typora/202108/20210818085657.png">
+<meta property="og:image" content="https://wgmpwy.oss-cn-beijing.aliyuncs.com/typora/202108/20210818085718.png">
+<meta property="article:published_time" content="2021-08-17T07:13:15.000Z">
+<meta property="article:modified_time" content="2021-08-18T00:57:54.497Z">
 <meta property="article:author" content="吴凡">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wgmpwy.oss-cn-beijing.aliyuncs.com/typora/202108/20210817151449.png">
 
-<link rel="canonical" href="https://w1394847159.github.io/">
+<link rel="canonical" href="https://w1394847159.github.io/2021/08/17/shu-ju-jie-gou/er-cha-shu/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>吴凡的博客</title>
+  <title>二叉树 | 吴凡的博客</title>
   
 
 
@@ -193,271 +221,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://w1394847159.github.io/2021/08/16/mian-shi/this-he-super-de-qu-bie/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://wgmpwy.oss-cn-beijing.aliyuncs.com/typora/202108/20210802114612.png">
-      <meta itemprop="name" content="吴凡">
-      <meta itemprop="description" content="不要在二十岁的时候就去享受八十岁的安逸">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吴凡的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/08/16/mian-shi/this-he-super-de-qu-bie/" class="post-title-link" itemprop="url">this和super的区别和各自的作用</a>
-        </h2>
-
-        <div class="post-meta">
-
-        <!--设置置顶-->
-        
-  <i class="fa fa-thumb-tack" aria-hidden="true"></i>
-  <font color=7D26CD>置顶</font>
-  <span class="post-meta-divider">|</span>
-        
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-08-16 11:12:07 / 修改时间：12:34:24" itemprop="dateCreated datePublished" datetime="2021-08-16T11:12:07+08:00">2021-08-16</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%9D%A2%E8%AF%95/" itemprop="url" rel="index"><span itemprop="name">面试</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
 
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>this和super有何区别，以及它们各自的作用是什么</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/08/16/mian-shi/this-he-super-de-qu-bie/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://w1394847159.github.io/2021/04/09/ying-ge/day7-tomcat/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://wgmpwy.oss-cn-beijing.aliyuncs.com/typora/202108/20210802114612.png">
-      <meta itemprop="name" content="吴凡">
-      <meta itemprop="description" content="不要在二十岁的时候就去享受八十岁的安逸">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吴凡的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/09/ying-ge/day7-tomcat/" class="post-title-link" itemprop="url">day7_Tomcat+servlet</a>
-        </h2>
-
-        <div class="post-meta">
-
-        <!--设置置顶-->
-        
-  <i class="fa fa-thumb-tack" aria-hidden="true"></i>
-  <font color=7D26CD>置顶</font>
-  <span class="post-meta-divider">|</span>
-        
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-09 13:37:57" itemprop="dateCreated datePublished" datetime="2021-04-09T13:37:57+08:00">2021-04-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-05 11:41:39" itemprop="dateModified" datetime="2021-08-05T11:41:39+08:00">2021-08-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%90%8E%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">后端</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%90%8E%E7%AB%AF/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>本文介绍Servlet + Tomcat服务器</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/04/09/ying-ge/day7-tomcat/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://w1394847159.github.io/2021/03/23/python/xiao-jia-yu/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://wgmpwy.oss-cn-beijing.aliyuncs.com/typora/202108/20210802114612.png">
-      <meta itemprop="name" content="吴凡">
-      <meta itemprop="description" content="不要在二十岁的时候就去享受八十岁的安逸">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吴凡的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/23/python/xiao-jia-yu/" class="post-title-link" itemprop="url">小甲鱼Python</a>
-        </h2>
-
-        <div class="post-meta">
-
-        <!--设置置顶-->
-        
-  <i class="fa fa-thumb-tack" aria-hidden="true"></i>
-  <font color=7D26CD>置顶</font>
-  <span class="post-meta-divider">|</span>
-        
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-03-23 11:18:45" itemprop="dateCreated datePublished" datetime="2021-03-23T11:18:45+08:00">2021-03-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-05 11:43:44" itemprop="dateModified" datetime="2021-08-05T11:43:44+08:00">2021-08-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B0%8F%E7%94%B2%E9%B1%BCPython/" itemprop="url" rel="index"><span itemprop="name">小甲鱼Python</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>本文是小甲鱼Python的学习总结，包含遍历，列表，字符串，字典等知识点，</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/03/23/python/xiao-jia-yu/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -473,10 +240,9 @@
       <meta itemprop="name" content="吴凡的博客">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/08/17/shu-ju-jie-gou/er-cha-shu/" class="post-title-link" itemprop="url">二叉树</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          二叉树
+        </h1>
 
         <div class="post-meta">
 
@@ -518,7 +284,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ul>
+        <h1 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ul>
 <li><p>二叉树是只有两个结点的树形，由于左右的不同，可以分为左子树和右子树。一个结点最多有2个结点，A为一个结点</p>
 <p><img src="https://wgmpwy.oss-cn-beijing.aliyuncs.com/typora/202108/20210817151449.png" alt="二叉树"></p>
 </li>
@@ -682,185 +448,59 @@
 <p><img src="https://wgmpwy.oss-cn-beijing.aliyuncs.com/typora/202108/20210818085657.png" alt="前继节点代替当前节点"></p>
 <p><img src="https://wgmpwy.oss-cn-beijing.aliyuncs.com/typora/202108/20210818085718.png" alt="删除原有前继节点"></p>
 
-      
     </div>
 
     
     
     
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>吴凡
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://w1394847159.github.io/2021/08/17/shu-ju-jie-gou/er-cha-shu/" title="二叉树">https://w1394847159.github.io/2021/08/17/shu-ju-jie-gou/er-cha-shu/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+<!--设置文章结束标志-->
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-check"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+  
+</div>
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://w1394847159.github.io/2021/08/05/ying-ge/day7-js/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://wgmpwy.oss-cn-beijing.aliyuncs.com/typora/202108/20210802114612.png">
-      <meta itemprop="name" content="吴凡">
-      <meta itemprop="description" content="不要在二十岁的时候就去享受八十岁的安逸">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吴凡的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/08/05/ying-ge/day7-js/" class="post-title-link" itemprop="url">day7_js</a>
-        </h2>
-
-        <div class="post-meta">
-
-        <!--设置置顶-->
         
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-08-05 11:23:53 / 修改时间：11:28:59" itemprop="dateCreated datePublished" datetime="2021-08-05T11:23:53+08:00">2021-08-05</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
-                </span>
-            </span>
 
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>JavaScript是前端的语言，可以为页面添加各种功能。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/08/05/ying-ge/day7-js/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/08/16/mian-shi/this-he-super-de-qu-bie/" rel="prev" title="this和super的区别和各自的作用">
+      <i class="fa fa-chevron-left"></i> this和super的区别和各自的作用
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
   
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://w1394847159.github.io/2021/08/05/ying-ge/day7-html/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://wgmpwy.oss-cn-beijing.aliyuncs.com/typora/202108/20210802114612.png">
-      <meta itemprop="name" content="吴凡">
-      <meta itemprop="description" content="不要在二十岁的时候就去享受八十岁的安逸">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吴凡的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/08/05/ying-ge/day7-html/" class="post-title-link" itemprop="url">day7_HTML</a>
-        </h2>
-
-        <div class="post-meta">
-
-        <!--设置置顶-->
-        
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-08-05 11:20:55 / 修改时间：11:29:47" itemprop="dateCreated datePublished" datetime="2021-08-05T11:20:55+08:00">2021-08-05</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>本文介绍HTML语言，还记录了后端接收前端数据</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/08/05/ying-ge/day7-html/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
 
 
 
@@ -912,6 +552,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-number">1.</span> <span class="nav-text">二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E7%82%B9"><span class="nav-number">1.2.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-number">1.3.</span> <span class="nav-text">特殊二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%96%9C%E6%A0%91"><span class="nav-number">1.3.1.</span> <span class="nav-text">1. 斜树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%BB%A1%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-number">1.3.2.</span> <span class="nav-text">2. 满二叉树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-number">1.3.3.</span> <span class="nav-text">3. 完全二叉树</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E6%80%A7%E8%B4%A8"><span class="nav-number">1.4.</span> <span class="nav-text">二叉树性质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="nav-number">1.5.</span> <span class="nav-text">二叉树存储结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="nav-number">1.5.1.</span> <span class="nav-text">顺序存储结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E9%93%BE%E8%A1%A8"><span class="nav-number">1.5.2.</span> <span class="nav-text">二叉链表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91"><span class="nav-number">1.6.</span> <span class="nav-text">二叉搜索树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%9F%A5%E6%89%BE"><span class="nav-number">1.6.1.</span> <span class="nav-text">1. 查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%8F%92%E5%85%A5"><span class="nav-number">1.6.2.</span> <span class="nav-text">2. 插入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%88%A0%E9%99%A4"><span class="nav-number">1.6.3.</span> <span class="nav-text">3. 删除</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-%E6%89%BE%E5%88%B0%E5%89%8D%E7%BB%A7%E3%80%81%E5%90%8E%E7%BB%A7%E8%8A%82%E7%82%B9"><span class="nav-number">1.6.3.1.</span> <span class="nav-text">3.1 找到前继、后继节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-%E6%A0%B9%E6%8D%AE%E5%AD%90%E8%8A%82%E7%82%B9%E6%95%B0%E9%87%8F%E5%88%A0%E9%99%A4"><span class="nav-number">1.6.3.2.</span> <span class="nav-text">3.2 根据子节点数量删除</span></a></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
